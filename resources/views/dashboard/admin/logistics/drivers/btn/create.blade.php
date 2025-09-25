@@ -35,6 +35,57 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">رقم الهاتف الإضافي</label>
+                            <input type="text" name="second_phone" class="form-control" value="">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">البريد الإلكتروني</label>
+                            <input type="email" name="email" class="form-control" value="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">رقم الإقامة</label>
+                            <input type="text" name="residence_number" class="form-control" value="">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">تاريخ التوظيف</label>
+                            <input type="date" name="hire_date" class="form-control" value="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">الجنسية</label>
+                            <select name="nationality_id" class="form-control">
+                                <option value="">اختر الجنسية</option>
+                                @foreach($nationalities as $nationality)
+                                <option value="{{ $nationality->id }}">{{ $nationality->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">نوع العقد</label>
+                            <select name="contract_type_id" class="form-control">
+                                <option value="">اختر نوع العقد</option>
+                                @foreach($contractTypes as $type)
+                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label">القسم / الإدارة</label>
+                            <select name="department_id" class="form-control">
+                                <option value="">اختر القسم</option>
+                                @foreach($departments as $department)
+                                <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="mb-3 col-md-4">
                             <label class="form-label">المرتب الأساسي</label>
                             <input type="float" name="salary" class="form-control" value="">

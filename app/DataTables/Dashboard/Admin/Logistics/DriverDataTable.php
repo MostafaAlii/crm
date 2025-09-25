@@ -3,7 +3,7 @@
 namespace App\DataTables\Dashboard\Admin\Logistics;
 
 use App\DataTables\Base\BaseDataTable;
-use App\Models\Driver;
+use App\Models\{Driver, Nationality, ContractType, Department};
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Utilities\Request as DataTableRequest;
@@ -19,7 +19,10 @@ class DriverDataTable extends BaseDataTable {
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function (Driver $record) {
-                return view('dashboard.admin.logistics.drivers.btn.actions', compact('record'));
+                $nationalities = Nationality::all();
+                $contractTypes = ContractType::all();
+                $departments = Department::all();
+                return view('dashboard.admin.logistics.drivers.btn.actions', compact('record', 'nationalities', 'contractTypes', 'departments'));
             })
             ->addColumn('avatar', function (Driver $record) {
                 $url = $record?->getMediaUrl('driver', $record, null, 'media', 'avatar');

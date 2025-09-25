@@ -16,7 +16,14 @@ class Driver extends BaseModel {
         'salary',
         'fixed_allowance',
         'bonus_balance',
-        'attachments'
+        'attachments',
+        'nationality_id',
+        'contract_type_id',
+        'department_id',
+        'second_phone',
+        'email',
+        'residence_number',
+        'hire_date',
     ];
 
 
@@ -39,6 +46,21 @@ class Driver extends BaseModel {
     public function fuelLogs()
     {
         return $this->hasMany(FuelLog::class);
+    }
+
+    public function nationality()
+    {
+        return $this->belongsTo(Nationality::class);
+    }
+
+    public function contractType()
+    {
+        return $this->belongsTo(ContractType::class);
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
     }
 
     public function media()
