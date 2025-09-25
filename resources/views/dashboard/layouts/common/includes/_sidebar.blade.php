@@ -76,6 +76,26 @@
                     </ul>
                 </li>
                 <!-- End vehicles -->
+                <!-- Start clients -->
+
+                <li class="nav-item nav-hasmenu{{ is_open(['admin.logistic.clients.index',]) }}">
+                    <a href="#!" class="nav-link">
+                        <span class="nav-icon"><i class="ti ti-layout-2"></i></span>
+                        <span class="nav-text">العملاء</span>
+                        <span class="nav-arrow"><i data-feather="{{ chevron_direction() }}"></i></span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <!-- clients -->
+                        <li class="nav-item">
+                            <a class="nav-link {{ is_active('admin.logistic.clients.index') }}"
+                                href="{{ route('admin.logistic.clients.index') }}">
+                                عملاء اللوجستيه
+                            </a>
+                            <a class="nav-link {{-- is_active('admin.logistic.clients.index') --}}" href="{{-- route('admin.logistic.clients.index') --}}">
+                                عملاء التخليص الجمركى
+                            </a>
+                        </li>
+                    </ul>
 
 
 
