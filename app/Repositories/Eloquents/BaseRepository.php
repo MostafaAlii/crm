@@ -44,9 +44,7 @@ abstract class BaseRepository {
 
     public function store(Request $request) {
         $validated = $request->validate($this->rules);
-        $data = [
-            'name'   => $validated['name'],
-        ];
+        $data = [];
         $data = array_merge($data, $this->extraStoreFields($request));
         $record = $this->model->create($data);
         $this->afterStore($record, $request);
