@@ -58,6 +58,24 @@
                     </ul>
                 </li>
                 <!-- End Driver -->
+                <!-- Start vehicles -->
+                <li class="nav-item nav-hasmenu{{ is_open(['admin.logistic.vehicles.index',]) }}">
+                    <a href="#!" class="nav-link">
+                        <span class="nav-icon"><i class="ti ti-layout-2"></i></span>
+                        <span class="nav-text">المركبات</span>
+                        <span class="nav-arrow"><i data-feather="{{ chevron_direction() }}"></i></span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <!-- vehicles -->
+                        <li class="nav-item">
+                            <a class="nav-link {{ is_active('admin.logistic.vehicles.index') }}"
+                                href="{{ route('admin.logistic.vehicles.index') }}">
+                                المركبات
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End vehicles -->
 
 
 

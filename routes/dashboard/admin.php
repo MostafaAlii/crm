@@ -29,6 +29,7 @@ Route::group(
             });
             Route::group(['prefix' => 'logistic', 'as' => 'logistic.'], function () {
                 Route::resource('drivers', Logistics\DriverController::class);
+                Route::resource('vehicles', Logistics\VehicleController::class);
             });
         });
 
