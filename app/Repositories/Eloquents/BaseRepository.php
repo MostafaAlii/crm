@@ -43,7 +43,7 @@ abstract class BaseRepository {
     protected function afterUpdate($model, Request $request): void {}
 
     public function store(Request $request) {
-        $validated = $request->validate($this->rules);
+        //$validated = $request->validate($this->rules);
         $data = [];
         $data = array_merge($data, $this->extraStoreFields($request));
         $record = $this->model->create($data);
@@ -59,17 +59,30 @@ abstract class BaseRepository {
         ));
     }
 
-    public function update(Request $request, $id) {
+    /*public function update(Request $request, $id) {
         $validated = $request->validate($this->rules);
         $record = $this->model->findOrFail($id);
         $data = [
-            'name'   => $validated['name'] ?? null,
+            'name'   => $request['name'] ?? null,
         ];
         $data = array_merge($data, $this->extraUpdateFields($request, $id));
         $record->update($data);
         $this->afterUpdate($record, $request);
         return redirect()->back()->with('success', 'تم التحديث بنجاح!');
+    }*/
+    public function update(Request $request, $id) {
+        if (!($request instanceof \Illuminate\Foundation\Http\FormRequest)) {
+            if (!empty($this->rules)) {
+                $request->validate($this->rules);
+            }
+        }
+        $record = $this->model->findOrFail($id);
+        $data = $this->extraUpdateFields($request, $id);
+        $record->update($data);
+        $this->afterUpdate($record, $request);
+        return redirect()->back()->with('success', 'تم التحديث بنجاح!');
     }
+
 
     public function show($id, $view, $title)
     {

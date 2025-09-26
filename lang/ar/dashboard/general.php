@@ -9,6 +9,7 @@ return [
     'select'                            =>                      'اختــر',
     'status'                            =>                      'حالــه',
     'closed'                            =>                      'اغلاق',
+    'choose'                            =>                      'اختر',
     // General ::
     'create'                            =>                      'انشاء',
     'save'                              =>                      'حفظ',

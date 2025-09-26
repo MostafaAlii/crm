@@ -120,7 +120,16 @@
         }
     }
 </style>
-
+@if ($errors->any())
+<div class="custom-alert error">
+    <i class="fa fa-times-circle"></i>
+    <ul style="margin: 0; padding-left: 20px;">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 @if(session('success'))
 <div class="custom-alert success">
     <i class="fa fa-check-circle"></i>

@@ -77,7 +77,6 @@
                 </li>
                 <!-- End vehicles -->
                 <!-- Start clients -->
-
                 <li class="nav-item nav-hasmenu{{ is_open(['admin.logistic.clients.index',]) }}">
                     <a href="#!" class="nav-link">
                         <span class="nav-icon"><i class="ti ti-layout-2"></i></span>
@@ -96,7 +95,23 @@
                             </a>
                         </li>
                     </ul>
+                </li>
 
+                <li class="nav-item nav-hasmenu{{ is_open(['admin.logistic.suppliers.index']) }}">
+                    <a href="#!" class="nav-link">
+                        <span class="nav-icon"><i class="ti ti-award"></i></span>
+                        <span class="nav-text">{{ __('dashboard/supplier.title') }}</span>
+                        <span class="nav-arrow"><i data-feather="{{ chevron_direction() }}"></i></span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li class="nav-item">
+                            <a class="nav-link {{ is_active('admin.logistic.suppliers.index') }}"
+                                href="{{ route('admin.logistic.suppliers.index') }}">
+                                {{ __('dashboard/supplier.list') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
 
 

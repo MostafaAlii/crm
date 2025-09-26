@@ -6,6 +6,7 @@ use App\DataTables\Dashboard\Admin\Logistics\DriverDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\DriverRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Requests\Dashboard\Logistics\DriverRequest;
 
 class DriverController extends Controller
 {
@@ -21,7 +22,7 @@ class DriverController extends Controller
         return $this->repository->create('dashboard.admin.logistics.drivers.create', trans('dashboard/driver.create'));
     }
 
-    public function store(Request $request)
+    public function store(DriverRequest $request)
     {
         return $this->repository->store($request);
     }
@@ -31,7 +32,7 @@ class DriverController extends Controller
         return $this->repository->edit($id, 'dashboard.admin.logistics.drivers.edit', trans('dashboard/driver.edit'));
     }
 
-    public function update(Request $request, $id)
+    public function update(DriverRequest $request, $id)
     {
         return $this->repository->update($request, $id);
     }

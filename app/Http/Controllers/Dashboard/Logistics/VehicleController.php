@@ -6,6 +6,7 @@ use App\DataTables\Dashboard\Admin\Logistics\VehicleDataTable;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\VehicleRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Requests\Dashboard\Logistics\VehicleRequest;
 
 class VehicleController extends Controller
 {
@@ -21,7 +22,7 @@ class VehicleController extends Controller
         return $this->repository->create('dashboard.admin.logistics.vehicles.create', 'انشاء مركبه جديدة');
     }
 
-    public function store(Request $request)
+    public function store(VehicleRequest $request)
     {
         return $this->repository->store($request);
     }
@@ -31,7 +32,7 @@ class VehicleController extends Controller
         return $this->repository->edit($id, 'dashboard.admin.logistics.vehicles.edit', 'تعديل المركبة');
     }
 
-    public function update(Request $request, $id)
+    public function update(VehicleRequest $request, $id)
     {
         return $this->repository->update($request, $id);
     }
