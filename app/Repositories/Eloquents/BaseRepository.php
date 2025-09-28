@@ -59,17 +59,6 @@ abstract class BaseRepository {
         ));
     }
 
-    /*public function update(Request $request, $id) {
-        $validated = $request->validate($this->rules);
-        $record = $this->model->findOrFail($id);
-        $data = [
-            'name'   => $request['name'] ?? null,
-        ];
-        $data = array_merge($data, $this->extraUpdateFields($request, $id));
-        $record->update($data);
-        $this->afterUpdate($record, $request);
-        return redirect()->back()->with('success', 'تم التحديث بنجاح!');
-    }*/
     public function update(Request $request, $id) {
         if (!($request instanceof \Illuminate\Foundation\Http\FormRequest)) {
             if (!empty($this->rules)) {

@@ -32,6 +32,7 @@ Route::group(
                 Route::resource('vehicles', Logistics\VehicleController::class);
                 Route::resource('clients', Logistics\ClientController::class);
                 Route::resource('suppliers', Logistics\SupplierController::class);
+                Route::resource('contracts', Logistics\ContractController::class);
             });
         });
 

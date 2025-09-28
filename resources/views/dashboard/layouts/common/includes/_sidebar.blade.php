@@ -113,6 +113,22 @@
                     </ul>
                 </li>
 
+                <li class="nav-item nav-hasmenu{{ is_open(['admin.logistic.contracts.index']) }}">
+                    <a href="#!" class="nav-link">
+                        <span class="nav-icon"><i class="ti ti-award"></i></span>
+                        <span class="nav-text">{{ __('dashboard/contracts.title') }}</span>
+                        <span class="nav-arrow"><i data-feather="{{ chevron_direction() }}"></i></span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li class="nav-item">
+                            <a class="nav-link {{ is_active('admin.logistic.contracts.index') }}"
+                                href="{{ route('admin.logistic.contracts.index') }}">
+                                {{ __('dashboard/contracts.title') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
 
 
 
